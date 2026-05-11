@@ -169,3 +169,14 @@ plt.show()
 ---
 
 If you want, I can also generate a runnable `.py` script version with the same lines and inline comments, or export this companion to PDF.
+
+---
+
+## Numeric choices & hyperparameter explanations
+
+- `epochs=100`: Number of full passes over the training set. Larger values let the model converge but risk overfitting; chosen here for demonstration.
+- `batch_size=16`: Number of samples per gradient update. Smaller batches produce noisier gradients and require less memory; 16 is a common small-batch choice.
+- `validation_split=0.05` or `0.2`: Fraction of training data used for validation — balances between validation reliability and training data size.
+- Single neuron (`Dense(1)` with `linear`): Implements linear regression; use multiple neurons or hidden layers for non-linear models.
+
+These explanations clarify why specific numeric values were used in the notebook (trade-offs of training stability, compute, and overfitting).

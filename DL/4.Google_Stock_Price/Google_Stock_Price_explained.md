@@ -108,3 +108,14 @@ plt.show()
 
 Notes:
 - RNNs like `SimpleRNN` capture temporal dependencies but may suffer from vanishing gradients; consider `LSTM`/`GRU` for longer sequences.
+
+---
+
+## Numeric choices & hyperparameter explanations
+
+- `look-back = 60`: Using 60 previous timesteps (e.g., 60 days) is a common heuristic to capture recent trends and seasonality; tune based on validation performance.
+- RNN units `50`: Number of hidden units per RNN layer; 50 balances model expressiveness and computational cost for a simple example.
+- `epochs=20`, `batch_size=32`: Training duration and batch size; more epochs may improve performance but risk overfitting — monitor validation.
+- `feature_range=(0,1)` in `MinMaxScaler`: Scales inputs to [0,1], suitable for RNN activations; ensure scaler is fitted on training data only.
+
+These notes explain common numeric choices used in the notebook and why they were selected.

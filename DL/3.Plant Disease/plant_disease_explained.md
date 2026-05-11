@@ -122,3 +122,15 @@ plt.show()
 Notes:
 - `train_data.num_classes` is determined by folders under `train_path`.
 - For production, consider more epochs, learning rate schedules, and monitoring with callbacks (EarlyStopping, ModelCheckpoint).
+
+---
+
+## Numeric choices & hyperparameter explanations
+
+- Convolutional filters `32, 64, 128`: Increasing filter counts in deeper layers lets the model learn more complex features while keeping earlier layers lightweight.
+- `target_size=(128,128)`: Chosen to give reasonable spatial resolution for plant details while limiting compute; adjust up for finer details or down for faster training.
+- `batch_size=32`: A common batch size balancing GPU memory and statistical efficiency.
+- `Dropout(0.5)`: Strong regularization on FC layers to reduce overfitting; conv layers often use lower dropout or spatial dropout.
+- `epochs=3` (example): Short for demonstration — in practice use more epochs with early stopping and checkpoints.
+
+These entries explain why common numeric values (kernel counts, image size, batch size, dropout) are used and trade-offs to consider.

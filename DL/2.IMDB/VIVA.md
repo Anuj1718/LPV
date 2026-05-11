@@ -92,3 +92,60 @@ Q30: What are common pitfalls in NLP pipelines?
 
 Q31: Practical viva tip: how to explain embedding dimensions?
 - A31: Embedding dimension is a hyperparameter controlling vector size; too small may underfit semantics, too large increases parameters and risk of overfitting.
+
+Q32: How to evaluate model robustness to noisy text?
+- A32: Add noise (typos, slang) to validation data, evaluate metrics, and consider character-level models or robust tokenization.
+
+Q33: What is label noise and how to detect it in text datasets?
+- A33: Label noise is incorrect labels; detect via human review of high-loss/misclassified examples or cross-checking sources.
+
+Q34: How to handle abbreviations and slang in reviews?
+- A34: Use normalization dictionaries, subword tokenization, or pretrained models that handle colloquial language.
+
+Q35: What is transfer learning in NLP (e.g., BERT)?
+- A35: Use pretrained language models that provide contextual embeddings, fine-tuned on downstream tasks for improved performance.
+
+Q36: How to interpret model calibration for probabilities?
+- A36: Check whether predicted probabilities match observed frequencies (calibration plots) and consider temperature scaling to calibrate.
+
+Q37: How to detect and mitigate dataset shift?
+- A37: Monitor incoming data statistics vs training; retrain or adapt models when distributions change.
+
+Q38: How to conduct error analysis for NLP models?
+- A38: Inspect confusion cases, group errors by pattern (negation, long sentences, sarcasm), and quantify per error type.
+
+Q39: What is class weighting and how to apply it in Keras?
+- A39: Assign higher loss weight to minority class via `class_weight` parameter in `model.fit()` to balance learning.
+
+Q40: How to interpret ROC-AUC for imbalanced data?
+- A40: ROC-AUC can be overly optimistic with class imbalance; precision-recall AUC may be more informative.
+
+Q41: What is the role of stopwords in TF-IDF features?
+- A41: Stopwords are common words that add little value; removing them can reduce noise and dimensionality.
+
+Q42: How to tune vocabulary preprocessing (lowercase, stemming) for TF-IDF?
+- A42: Validate options empirically; stemming reduces vocab size while lemmatization preserves more semantic forms.
+
+Q43: How to use pre-trained embeddings with Keras Dense models?
+- A43: Precompute average/pooled embeddings per document or use embedding layers in sequence models rather than TF-IDF with Dense.
+
+Q44: What privacy concerns exist with text datasets?
+- A44: Sensitive personal information in reviews must be removed/anonymized to protect privacy and comply with regulations.
+
+Q45: How to reduce model size for deployment on edge devices?
+- A45: Use quantization, distillation, smaller architectures, or convert to optimized runtimes (TensorFlow Lite, ONNX Runtime).
+
+Q46: What is transferability of sentiment models across domains?
+- A46: Models trained in one domain (e.g., movies) may not generalize to others (e.g., product reviews); domain adaptation helps.
+
+Q47: How to set a threshold for binary classification outputs?
+- A47: Choose threshold based on desired precision/recall trade-off using validation ROC/PR curves.
+
+Q48: How to pipeline preprocessing, model, and postprocessing for production?
+- A48: Encapsulate steps in a reproducible pipeline, save fitted preprocessors, and ensure consistent runtime transforms.
+
+Q49: What are embedding-based similarity searches useful for in IMDB dataset?
+- A49: Finding similar reviews, clustering sentiment patterns, or retrieving example reviews for explanation.
+
+Q50: Practical viva tip: how to concisely justify your feature choice?
+- A50: Explain how each feature helps discriminate classes, show validation gains, and mention trade-offs (compute/memory).

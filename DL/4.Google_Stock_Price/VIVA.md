@@ -89,3 +89,63 @@ Q29: What is feature engineering for time series?
 
 Q30: Practical viva tip: how to show your model is robust?
 - A30: Demonstrate stable performance across multiple holdout periods, show residual diagnostics, and provide prediction intervals.
+
+Q31: How to perform feature selection in time series?
+- A31: Use lag importance, correlation analysis, or model-based importance (e.g., permutation importance) on validation sets.
+
+Q32: How to handle regime changes in financial series?
+- A32: Detect change points, retrain models on recent data, or build regime-aware models that switch behavior.
+
+Q33: What is seasonality decomposition?
+- A33: Decompose series into trend, seasonal, and residual components (e.g., STL) to model each separately.
+
+Q34: How to incorporate calendar effects (e.g., weekdays/months)?
+- A34: Add time-based features like day-of-week, month, holiday indicators to capture periodic patterns.
+
+Q35: What is data leakage in backtesting and how to avoid it?
+- A35: Using future information (e.g., future scaled statistics) in training; avoid by strictly using past data when engineering features.
+
+Q36: How to detect autocorrelation in residuals?
+- A36: Plot ACF of residuals and perform Ljung-Box test to check for remaining autocorrelation.
+
+Q37: How to select window normalization strategy for returns vs prices?
+- A37: Returns stabilize variance and often suit modeling; price-level models require proper scaling and may need trend handling.
+
+Q38: What is the effect of outliers on RNN training?
+- A38: Outliers can skew loss and gradients leading to instability; consider robust loss, clipping, or outlier removal.
+
+Q39: How to tune sequence length vs model capacity trade-off?
+- A39: Longer sequences require larger models; balance via validation and prefer meaningful lags that capture dependencies.
+
+Q40: How to use residual bootstrapping for interval forecasts?
+- A40: Fit model residuals, sample residuals with replacement to generate forecast trajectories and compute quantiles.
+
+Q41: What is multi-step forecasting and its challenges?
+- A41: Predicting multiple future timesteps; challenges include error accumulation and designing appropriate architectures (direct vs recursive).
+
+Q42: How to evaluate multi-step forecasts?
+- A42: Use horizon-wise metrics (MAE per horizon), and visualize forecast envelopes across horizons.
+
+Q43: How to include exogenous macro indicators in stock forecasting?
+- A43: Align external indicators by timestamp as additional inputs; be cautious of their update frequency and look-ahead risk.
+
+Q44: What are diebold-mariano tests used for?
+- A44: Statistical tests comparing predictive accuracy between two forecasting models over the same period.
+
+Q45: How to build a baseline model for time series tasks?
+- A45: Use naive forecasts (last value), moving average, or simple ARIMA as baselines to compare advanced models.
+
+Q46: How to interpret model weights or importance in RNNs?
+- A46: Use input perturbation, occlusion tests, attention mechanisms, or gradient-based attribution to estimate importance.
+
+Q47: How to detect structural breaks programmatically?
+- A47: Use statistical tests for change points (e.g., PELT), monitor model performance drift, or run rolling-window analyses.
+
+Q48: How to design experiments for model selection in finance?
+- A48: Use time-respecting cross-validation, multiple holdouts, and economic metrics (e.g., P&L) beyond statistical error.
+
+Q49: What is walk-forward vs expanding window evaluation?
+- A49: Walk-forward retrains on a fixed window sliding forward; expanding window grows training history each step — choose based on stationarity.
+
+Q50: Practical viva tip: how to justify model choice quickly?
+- A50: Show baseline comparisons, validation metrics across horizons, and explain why chosen model fits domain patterns (seasonality, trend, nonlinearity).

@@ -87,5 +87,65 @@ Q28: What is class activation mapping used for in plant disease?
 Q29: How to prepare a dataset for deployment inference?
 - A29: Standardize preprocessing, save normalization parameters, and ensure model input pipeline matches training preprocessing.
 
-Q30: Practical viva tip: what steps would you take if a model performs poorly on a particular class?
-- A30: Inspect samples, increase augmentation for that class, collect more data, use class weights, or refine model architecture.
+Q30: What is transfer learning's impact on training time and data requirements?
+- A30: Transfer learning reduces training time and data needs since pretrained layers provide general visual features; only a smaller head often needs training.
+
+Q31: What is fine-tuning vs freezing layers in transfer learning?
+- A31: Freezing keeps pretrained weights fixed and trains only new layers; fine-tuning unfreezes some pretrained layers to adapt representations.
+
+Q32: Why are convolutional filters often powers of two (e.g., 32, 64, 128)?
+- A32: Powers of two align well with memory and GPU compute patterns, and doubling filters progressively captures richer features while controlling parameter growth.
+
+Q33: Why use small kernels like (3,3) instead of large ones?
+- A33: Stacked small kernels increase receptive field with fewer parameters and introduce more non-linearity than a single large kernel.
+
+Q34: What is receptive field?
+- A34: The region of input that affects a unit in a deeper layer; increases with layers and pooling.
+
+Q35: How to choose dropout rate (e.g., 0.5)?
+- A35: Choose based on overfitting severity; 0.5 is common for FC layers to strongly regularize, while conv layers use lower rates.
+
+Q36: Why flatten before Dense layers?
+- A36: Flatten converts spatial feature maps to a 1D vector so fully connected layers can process global information across features.
+
+Q37: What is model capacity and how to control it?
+- A37: Capacity is the model's ability to fit complex patterns; control via number of layers/filters, regularization, and architecture design.
+
+Q38: Why use softmax in the output layer for multi-class classification?
+- A38: Softmax converts logits to a probability distribution across classes, enabling categorical crossentropy training.
+
+Q39: What is label encoding consistency and why ensure it?
+- A39: Ensure the folder-to-class mapping (e.g., `train_data.class_indices`) is consistent across train/val/test and saved for deployment.
+
+Q40: How to handle class imbalance during evaluation?
+- A40: Report per-class metrics and macro-averaged scores; consider confusion matrices and class-weighted metrics.
+
+Q41: What is model calibration and why check it?
+- A41: Calibration measures whether predicted probabilities reflect true frequencies; check via reliability diagrams or calibration error.
+
+Q42: How to perform inference efficiently on batches of images?
+- A42: Use batched preprocessing and model.predict on arrays to leverage vectorized GPU computations and reduce per-sample overhead.
+
+Q43: What is effect of image normalization using dataset mean/std vs simple rescale?
+- A43: Mean/std normalization centers and scales distributions per channel, sometimes improving convergence over simple 0–1 scaling.
+
+Q44: What are common image augmentation pitfalls?
+- A44: Over-augmenting (unnatural transforms), applying label-changing transforms, or augmenting validation/test data can harm performance.
+
+Q45: How to use cross-validation with CNNs and large images?
+- A45: Use smaller subsets or k-fold with limited folds to control compute, and consider stratified splits by class.
+
+Q46: What is early stopping patience and how to set it?
+- A46: Patience is number of epochs without improvement before stopping; set based on validation noise and expected convergence time.
+
+Q47: How to choose optimizer parameters like learning rate?
+- A47: Start with default (e.g., 1e-3 for Adam), then tune with learning rate schedules or find via learning rate finder.
+
+Q48: What is mixed precision training and when to use it?
+- A48: Mixed precision uses FP16 and FP32 to accelerate training with less memory — use when supported by hardware to speed up CNN training.
+
+Q49: How to keep reproducibility when training CNNs?
+- A49: Fix random seeds, record library versions, use deterministic flags where possible, and log training configurations.
+
+Q50: Practical viva tip: how to summarise your CNN project concisely?
+- A50: Explain dataset, preprocessing, model architecture, training setup, results (metrics + visuals), ablations, and deployment considerations.

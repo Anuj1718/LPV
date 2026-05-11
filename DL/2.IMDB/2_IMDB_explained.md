@@ -144,3 +144,14 @@ print("\nFinal Accuracy:", accuracy)
 ---
 
 Potential follow-ups: add tokenization with `Tokenizer` + embedding layers, or use `TextVectorization` instead of `TfidfVectorizer` for end-to-end Keras models.
+
+---
+
+## Numeric choices & hyperparameter explanations
+
+- `max_features=5000` in `TfidfVectorizer`: Limits vocabulary size to top 5000 terms by TF-IDF importance to control dimensionality and memory usage; increase for richer vocab but watch memory.
+- Dense layer sizes `128` and `64`: Hidden layer sizes chosen as a trade-off between capacity and overfitting; they provide enough parameters to learn patterns from TF-IDF features.
+- `epochs=10` and `batch_size=32`: Short training for demo; batch size 32 is a standard default balancing gradient stability and efficiency.
+- `validation_data=(X_test, y_test)`: Shown for convenience; in strict experiments use a separate validation split to avoid test-data tuning.
+
+These notes explain why those numbers are commonly chosen and the trade-offs involved.

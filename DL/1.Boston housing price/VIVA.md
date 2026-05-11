@@ -92,3 +92,60 @@ Q30: How to validate model assumptions?
 
 Q31: Practical viva tip: how would you explain coefficient significance?
 - A31: Show p-values and confidence intervals; small p-value indicates coefficient statistically different from zero under model assumptions.
+
+Q32: How to handle outliers in features or target?
+- A32: Detect via boxplots or z-scores; handle by transformation, capping, or robust models that downweight outliers.
+
+Q33: What is robust regression?
+- A33: Regression methods (e.g., Huber, RANSAC) less sensitive to outliers than OLS by using alternative loss or sampling.
+
+Q34: How does feature engineering help linear models?
+- A34: Creating interaction terms, polynomials, or domain-specific transforms can enable linear models to capture nonlinearities.
+
+Q35: How to choose between parametric and non-parametric models?
+- A35: Parametric (linear) models are interpretable and fast; non-parametric (trees, kernels) capture complex patterns but may need more data.
+
+Q36: How to detect multivariate outliers?
+- A36: Use Mahalanobis distance or leverage statistics to find points with unusual combinations of features.
+
+Q37: What is heteroscedasticity's effect on confidence intervals?
+- A37: It invalidates standard OLS variance estimates; use robust SEs to get valid intervals.
+
+Q38: When is log-transforming the target useful?
+- A38: When errors scale with magnitude or distribution is skewed; log-transform stabilizes variance and linearizes multiplicative effects.
+
+Q39: How to interpret interaction term coefficients?
+- A39: An interaction coefficient quantifies how the effect of one predictor changes per unit of another predictor.
+
+Q40: What diagnostics plots would you show in a viva?
+- A40: Residuals vs fitted, Q-Q plot, leverage vs residuals (Cook's distance), and histogram of residuals.
+
+Q41: How to present model selection in viva?
+- A41: Show candidate models, cross-validation scores, chosen metrics, and rationale for chosen model balancing performance and interpretability.
+
+Q42: How to validate model stability across time or subgroups?
+- A42: Run stratified evaluations, time-based splits, or evaluate on multiple holdout sets to ensure consistent performance.
+
+Q43: What is the role of the intercept term in linear regression?
+- A43: The intercept is the predicted target when all predictors are zero (after scaling this interpretation changes accordingly).
+
+Q44: How to compute prediction intervals for new observations?
+- A44: Use the estimated variance of residuals and parameter uncertainty to compute intervals around predictions (wider than CI for mean).
+
+Q45: What is the difference between prediction interval and confidence interval?
+- A45: Confidence interval estimates uncertainty of the mean prediction; prediction interval captures variability for individual observations (wider).
+
+Q46: How to handle missing values in features?
+- A46: Use imputation (mean/median/multivariate), model-based imputation, or remove rows/columns depending on missingness pattern.
+
+Q47: How to choose which features to keep in final model?
+- A47: Use domain knowledge, statistical significance, effect size, feature importance, and cross-validation performance.
+
+Q48: How to explain model limitations to a non-technical audience?
+- A48: Focus on predictive accuracy, uncertainty, key drivers, and caution about extrapolation beyond training data.
+
+Q49: What ethical concerns exist when predicting housing prices?
+- A49: Potential bias if features correlate with protected attributes; ensure fairness, privacy, and avoid discriminatory inputs.
+
+Q50: Practical viva tip: if asked to improve the model quickly in an exam, what would you do?
+- A50: Check data quality, add simple regularization, try a small nonlinear model (e.g., random forest), and validate on hold-out set.
